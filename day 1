@@ -1,0 +1,32 @@
+#sum to 2020 then multiply
+from itertools import combinations as cb
+try:
+    with open('SumOfYears', mode='r') as my_file:
+        file = my_file.readlines()
+        multiply = []
+        year_needed = 2020
+
+        # getting rid of \n at end of each string
+        years = [x[:-1] for x in file]
+
+        # change list of str to int
+        int_years = list(map(int, years))
+
+        # itertools to create pairs for each index
+        doub_pairs = list(cb(int_years,2))
+
+        def summation(pair):
+            return sum(pair) == year_needed
+
+        result1 = list(filter(summation, doub_pairs))
+
+        print(result1)
+
+        # part 2
+        trip_pairs = list(cb(int_years,3))
+
+        result2 = list(filter(summation, trip_pairs))
+        print(result2)
+        
+except FileNotFoundError as err:
+    print('file not found')
