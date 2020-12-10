@@ -1,5 +1,6 @@
 #sum to 2020 then multiply
 from itertools import combinations as cb
+
 try:
     with open('SumOfYears', mode='r') as my_file:
         file = my_file.readlines()
